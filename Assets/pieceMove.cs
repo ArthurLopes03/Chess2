@@ -25,11 +25,11 @@ public class pieceMove : MonoBehaviour
     {
         if(isWhite == true)
         {
-            transform.position = transform.position + new Vector3(0, moveDist, 0);
+            transform.position = transform.position + new Vector3(moveDist, 0, 0);
         }
         else
         {
-            transform.position = transform.position - new Vector3(0, moveDist, 0);
+            transform.position = transform.position - new Vector3(moveDist, 0, 0);
         }
     }
 
@@ -40,7 +40,7 @@ public class pieceMove : MonoBehaviour
 
         if (Input.GetKey("space"))
         {
-            transform.position = transform.position + new Vector3(0, moveDist, 0);
+            transform.position = transform.position + new Vector3(moveDist, 0, 0);
         }
     }
 }
