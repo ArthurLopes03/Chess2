@@ -16,7 +16,7 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < 8; y++)
             {
-                Square square = Instantiate(squarePrefab, new Vector3(x, y, 0), Quaternion.identity).GetComponent<Square>();
+                Square square = Instantiate(squarePrefab, new Vector3((x * 2)+1, (y * 2)+1, 0), Quaternion.identity).GetComponent<Square>();
 
                 square.position = new Vector2(x+1, y+1);
 
