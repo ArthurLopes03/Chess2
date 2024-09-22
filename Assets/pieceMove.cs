@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class pieceMove : MonoBehaviour
 {
-    public bool isWhite;
     [SerializeField] private bool firstMove;
     Transform position;
     Vector3 currentPosition;
+    public GameObject indicator;
 
     private int moveDist;
     private int movedistDouble;
@@ -23,14 +23,11 @@ public class pieceMove : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(isWhite == true)
-        {
-            transform.position = transform.position + new Vector3(moveDist, 0, 0);
-        }
-        else
-        {
-            transform.position = transform.position - new Vector3(moveDist, 0, 0);
-        }
+        indicator.GetComponentInChildren<Renderer>().enabled = !indicator.GetComponentInChildren<Renderer>().enabled;
+        
+        //transform.position = indicator.transform.position;
+
+        //transform.position = transform.position + new Vector3(moveDist, 0, 0);
     }
 
     // Update is called once per frame
