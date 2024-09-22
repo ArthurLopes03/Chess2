@@ -9,6 +9,7 @@ public class pieceMove : MonoBehaviour
     Transform position;
     Vector3 currentPosition;
     public GameObject indicator;
+    private bool toggle;
 
     private int moveDist;
     private int movedistDouble;
@@ -19,12 +20,22 @@ public class pieceMove : MonoBehaviour
         moveDist = 2;
         movedistDouble = 4;
         position = GetComponent<Transform>();
+        toggle = false;
     }
 
     private void OnMouseDown()
     {
-        indicator.GetComponentInChildren<Renderer>().enabled = !indicator.GetComponentInChildren<Renderer>().enabled;
-        
+        toggle = !toggle;
+
+        //indicator.SetActive(toggle);
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(toggle);
+        }
+
+        //indicator.GetComponentInChildren<Renderer>().enabled = !indicator.GetComponentInChildren<Renderer>().enabled;
+
         //transform.position = indicator.transform.position;
 
         //transform.position = transform.position + new Vector3(moveDist, 0, 0);
