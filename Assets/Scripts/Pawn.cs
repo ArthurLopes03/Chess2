@@ -63,22 +63,48 @@ public class Pawn : ChessPiece
             }
         }
 
-        Vector2 front = new Vector2(square.position.x, square.position.y + 1);
-
-        if(square.grid.squares.ContainsKey(front))
+        if(isWhite)
         {
-            Square squareToCheck = square.grid.squares[front];
-            if (squareToCheck.piece == null)
-            {
-                squareList.Add(squareToCheck);
-            }
+            Vector2 front = new Vector2(square.position.x, square.position.y + 1);
 
-            if(firstMove)
+            if (square.grid.squares.ContainsKey(front))
             {
-                squareToCheck = square.grid.squares[new Vector2(front.x, front.y + 1)];
+                Square squareToCheck = square.grid.squares[front];
                 if (squareToCheck.piece == null)
                 {
                     squareList.Add(squareToCheck);
+                }
+
+                if (firstMove)
+                {
+                    squareToCheck = square.grid.squares[new Vector2(front.x, front.y + 1)];
+                    if (squareToCheck.piece == null)
+                    {
+                        squareList.Add(squareToCheck);
+                    }
+                }
+            }
+        }
+
+        if (!isWhite)
+        {
+            Vector2 front = new Vector2(square.position.x, square.position.y - 1);
+
+            if (square.grid.squares.ContainsKey(front))
+            {
+                Square squareToCheck = square.grid.squares[front];
+                if (squareToCheck.piece == null)
+                {
+                    squareList.Add(squareToCheck);
+                }
+
+                if (firstMove)
+                {
+                    squareToCheck = square.grid.squares[new Vector2(front.x, front.y - 1)];
+                    if (squareToCheck.piece == null)
+                    {
+                        squareList.Add(squareToCheck);
+                    }
                 }
             }
         }

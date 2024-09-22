@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class GridBoard : MonoBehaviour
 {
     public GameObject squarePrefab;
-    public GameObject rookPrefab;
-    public GameObject bishopPrefab;
-    public GameObject queenPrefab;
-    public GameObject knightPrefab;
-    public GameObject pawnPrefab;
+    public PiecePlacer piecePlacer;
 
     public Dictionary<Vector2, Square> squares;
 
@@ -24,35 +21,17 @@ public class GridBoard : MonoBehaviour
     {
         highlightedSquares = new List<Square>();
         SetGrid();
-        ChessPiece Bishop = Instantiate(bishopPrefab, squares[new Vector2(2,1)].transform.position, this.transform.rotation).GetComponent<ChessPiece>();
+        piecePlacer.PlaceWhitePieces();
+        piecePlacer.PlaceBlackPieces();
+    }
+    
+    public void PlacePiece(GameObject prefab, Vector2 position)
+    {
+        ChessPiece piece = Instantiate(prefab, squares[position].transform.position, this.transform.rotation).GetComponent<ChessPiece>();
 
-        Bishop.square = squares[new Vector2(2, 1)];
-        Bishop.square.piece = Bishop;
-        Bishop.DetermineAttackingSquares();
-
-        ChessPiece rook = Instantiate(rookPrefab, squares[new Vector2(1, 1)].transform.position, this.transform.rotation).GetComponent<ChessPiece>();
-
-        rook.square = squares[new Vector2(1, 1)];
-        rook.square.piece = rook;
-        rook.DetermineAttackingSquares();
-
-        ChessPiece queen = Instantiate(queenPrefab, squares[new Vector2(4, 1)].transform.position, this.transform.rotation).GetComponent<ChessPiece>();
-
-        queen.square = squares[new Vector2(4, 1)];
-        queen.square.piece = queen;
-        queen.DetermineAttackingSquares();
-
-        ChessPiece knight = Instantiate(knightPrefab, squares[new Vector2(3, 1)].transform.position, this.transform.rotation).GetComponent<ChessPiece>();
-
-        knight.square = squares[new Vector2(3, 1)];
-        knight.square.piece = knight;
-        knight.DetermineAttackingSquares();
-
-        ChessPiece pawn = Instantiate(pawnPrefab, squares[new Vector2(2, 2)].transform.position, this.transform.rotation).GetComponent<ChessPiece>();
-
-        pawn.square = squares[new Vector2(2, 2)];
-        pawn.square.piece = pawn;
-        pawn.DetermineAttackingSquares();
+        piece.square = squares[position];
+        piece.square.piece = piece;
+        piece.DetermineAttackingSquares();
     }
 
     //Sets up the grid
@@ -97,8 +76,16 @@ public class GridBoard : MonoBehaviour
             //Moves the piece if the square is highlighted
             if(highlightedSquares.Contains(selectedSquare))
             {
-                UnHighlightSquares();
-                selectedPiece.MovePiece(selectedSquare);
+                try
+                {
+                    UnHighlightSquares();
+                    selectedPiece.MovePiece(selectedSquare);
+                    ChangeTurn();
+                }
+                catch
+                {
+                    Debug.Log("smth happened");
+                }
             }
             //Selects the piece if there is one
             else if (selectedSquare.piece != null)
@@ -106,14 +93,18 @@ public class GridBoard : MonoBehaviour
                 //If it isn't the same colour as the player, cancel
                 if (selectedSquare.piece.isWhite == playerIsWhite)
                 {
-                    Debug.Log("Selected");
-                    selectedPiece = selectedSquare.piece;
-                    UnHighlightSquares();
-                    highlightedSquares = selectedSquare.piece.DeterminePossibleMoves();
-                    HighLightSquares();
+                    SelectPiece(selectedSquare);
                 }
             }
         }
+    }
+
+    void SelectPiece(Square selectedSquare)
+    {
+        selectedPiece = selectedSquare.piece;
+        UnHighlightSquares();
+        highlightedSquares = selectedSquare.piece.DeterminePossibleMoves();
+        HighLightSquares();
     }
 
     void DeselectPiece()
@@ -135,6 +126,19 @@ public class GridBoard : MonoBehaviour
         foreach (var square in highlightedSquares)
         {
             square.spriteRenderer.enabled = false;
+        }
+    }
+
+    void ChangeTurn()
+    {
+        DeselectPiece();
+        if(playerIsWhite)
+        {
+            playerIsWhite = false;
+        }
+        else if(!playerIsWhite)
+        {
+            playerIsWhite = true;
         }
     }
 }

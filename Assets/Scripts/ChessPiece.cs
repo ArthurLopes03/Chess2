@@ -22,7 +22,6 @@ public abstract class ChessPiece : MonoBehaviour
 
     public virtual void MovePiece(Square newSquare)
     {
-        Debug.Log("Moving to " + newSquare.position);
         if (newSquare.piece != null)
         {
             newSquare.piece.GetCaptured();
