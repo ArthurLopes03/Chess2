@@ -7,6 +7,7 @@ public class gameData : MonoBehaviour
     public bool pieceSelected;
     public bool playersTurn;
 
+    GameObject pieces;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,6 @@ public class gameData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //pieceSelected = GameObject.FindGameObjectsWithTag("Player");
     }
 }

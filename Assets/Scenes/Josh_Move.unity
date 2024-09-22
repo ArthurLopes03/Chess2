@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 71692835}
   m_Layer: 0
   m_Name: blueKing
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1071,7 +1071,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &71692836
 BoxCollider2D:
@@ -1668,7 +1670,7 @@ GameObject:
   - component: {fileID: 165972650}
   m_Layer: 0
   m_Name: blueRook (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1762,7 +1764,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &165972651
 BoxCollider2D:
@@ -2225,7 +2229,7 @@ GameObject:
   - component: {fileID: 313709072}
   m_Layer: 0
   m_Name: PawnBlue (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2244,7 +2248,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 1825372015}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &313709073
 BoxCollider2D:
@@ -2373,7 +2379,7 @@ GameObject:
   - component: {fileID: 333066894}
   m_Layer: 0
   m_Name: blueQueen
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2475,7 +2481,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &333066895
 BoxCollider2D:
@@ -3742,7 +3750,7 @@ GameObject:
   - component: {fileID: 618567822}
   m_Layer: 0
   m_Name: PawnBlue
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3874,7 +3882,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 807429870}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!1 &657455223
 GameObject:
@@ -3890,7 +3900,7 @@ GameObject:
   - component: {fileID: 657455224}
   m_Layer: 0
   m_Name: PawnBlue (7)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3909,7 +3919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 482338628}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &657455225
 BoxCollider2D:
@@ -5423,7 +5435,7 @@ GameObject:
   - component: {fileID: 880442550}
   m_Layer: 0
   m_Name: knightBlue (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5562,7 +5574,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!1 &916817565
 GameObject:
@@ -6248,7 +6262,7 @@ GameObject:
   - component: {fileID: 1046711494}
   m_Layer: 0
   m_Name: PawnBlue (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6267,7 +6281,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 926368813}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &1046711495
 BoxCollider2D:
@@ -7515,7 +7531,7 @@ GameObject:
   - component: {fileID: 1229375545}
   m_Layer: 0
   m_Name: blueRook
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7609,7 +7625,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &1229375546
 BoxCollider2D:
@@ -7804,7 +7822,7 @@ GameObject:
   - component: {fileID: 1268218944}
   m_Layer: 0
   m_Name: PawnBlue (6)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7823,7 +7841,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 2084685383}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &1268218945
 BoxCollider2D:
@@ -7952,7 +7972,7 @@ GameObject:
   - component: {fileID: 1315269043}
   m_Layer: 0
   m_Name: PawnBlue (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7971,7 +7991,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 1169608562}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &1315269044
 BoxCollider2D:
@@ -8770,7 +8792,7 @@ GameObject:
   - component: {fileID: 1405217113}
   m_Layer: 0
   m_Name: PawnBlue (5)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8789,7 +8811,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 1154331608}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &1405217114
 BoxCollider2D:
@@ -8918,7 +8942,7 @@ GameObject:
   - component: {fileID: 1411857965}
   m_Layer: 0
   m_Name: blueBishop
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9057,7 +9081,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!1 &1414601764
 GameObject:
@@ -11708,7 +11734,7 @@ GameObject:
   - component: {fileID: 1716988985}
   m_Layer: 0
   m_Name: PawnBlue (4)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11727,7 +11753,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 1414601764}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &1716988986
 BoxCollider2D:
@@ -13486,6 +13514,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2039720799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2039720801}
+  - component: {fileID: 2039720800}
+  m_Layer: 0
+  m_Name: Data
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2039720800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039720799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c00ff6c4bc62e442b65d28bd816e1be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceSelected: 0
+  playersTurn: 0
+--- !u!4 &2039720801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039720799}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1858475, y: 0.7692831, z: -9.066433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2067150398
 GameObject:
   m_ObjectHideFlags: 0
@@ -13634,7 +13708,7 @@ GameObject:
   - component: {fileID: 2067465134}
   m_Layer: 0
   m_Name: blueBishop (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13728,7 +13802,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &2067465135
 BoxCollider2D:
@@ -13789,7 +13865,7 @@ GameObject:
   - component: {fileID: 2068233217}
   m_Layer: 0
   m_Name: knightBlue
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13883,7 +13959,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isitmyTurn: 0
   indicator: {fileID: 0}
-  parent: {fileID: 0}
+  parent: {fileID: 1203976161}
+  selected: 0
+  childColliders: {fileID: 0}
   otherpieceSelected: 0
 --- !u!61 &2068233217
 BoxCollider2D:
@@ -14609,3 +14687,4 @@ SceneRoots:
   - {fileID: 1203976162}
   - {fileID: 2035626580}
   - {fileID: 1872452207}
+  - {fileID: 2039720801}
