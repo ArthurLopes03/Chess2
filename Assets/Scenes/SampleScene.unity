@@ -245,6 +245,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 8650109490698516840, guid: b318d8386a86c7f4da5010869f76f6c5, type: 3}
+  rookPrefab: {fileID: 3929450775373365920, guid: 938ea5e78c36384488746fb07cb0f892, type: 3}
+  bishopPrefab: {fileID: 3929450775373365920, guid: 85e592e3a0e8f3c499e801dbb508acd7, type: 3}
+  queenPrefab: {fileID: 3929450775373365920, guid: f6bdbc682c9326a40853ac449439df2a, type: 3}
+  knightPrefab: {fileID: 3929450775373365920, guid: 75c5de37323029e4daf68653fa6c69c8, type: 3}
+  pawnPrefab: {fileID: 3929450775373365920, guid: 04048325ae9368c479823b4ab4827465, type: 3}
+  highlightedSquares: []
+  playerIsWhite: 1
 --- !u!4 &648924817
 Transform:
   m_ObjectHideFlags: 0
