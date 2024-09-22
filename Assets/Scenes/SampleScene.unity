@@ -225,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 648924817}
   - component: {fileID: 648924816}
+  - component: {fileID: 648924818}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -245,12 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 8650109490698516840, guid: b318d8386a86c7f4da5010869f76f6c5, type: 3}
-  rookPrefab: {fileID: 3929450775373365920, guid: 938ea5e78c36384488746fb07cb0f892, type: 3}
-  bishopPrefab: {fileID: 3929450775373365920, guid: 85e592e3a0e8f3c499e801dbb508acd7, type: 3}
-  queenPrefab: {fileID: 3929450775373365920, guid: f6bdbc682c9326a40853ac449439df2a, type: 3}
-  knightPrefab: {fileID: 3929450775373365920, guid: 75c5de37323029e4daf68653fa6c69c8, type: 3}
-  pawnPrefab: {fileID: 3929450775373365920, guid: 04048325ae9368c479823b4ab4827465, type: 3}
-  highlightedSquares: []
+  piecePlacer: {fileID: 648924818}
   playerIsWhite: 1
 --- !u!4 &648924817
 Transform:
@@ -267,6 +263,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648924818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648924815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7be734a881c1749bc433e66a50040d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 648924816}
+  rookPrefab: {fileID: 3929450775373365920, guid: 938ea5e78c36384488746fb07cb0f892, type: 3}
+  bishopPrefab: {fileID: 3929450775373365920, guid: 85e592e3a0e8f3c499e801dbb508acd7, type: 3}
+  queenPrefab: {fileID: 3929450775373365920, guid: 8726652f2da71654382918bd9850a0d1, type: 3}
+  knightPrefab: {fileID: 3929450775373365920, guid: 75c5de37323029e4daf68653fa6c69c8, type: 3}
+  pawnPrefab: {fileID: 3929450775373365920, guid: 04048325ae9368c479823b4ab4827465, type: 3}
+  kingPrefab: {fileID: 3929450775373365920, guid: f6bdbc682c9326a40853ac449439df2a, type: 3}
+  rookPrefabBlack: {fileID: 3929450775373365920, guid: 1d6b64c702e937844afafe01f0b7870c, type: 3}
+  bishopPrefabBlack: {fileID: 3929450775373365920, guid: 17e3ad81a33611546bf9a915ba5d5af0, type: 3}
+  queenPrefabBlack: {fileID: 3929450775373365920, guid: 5f144b8c6cc53f44380efabae83a9937, type: 3}
+  knightPrefabBlack: {fileID: 3929450775373365920, guid: 08699259cf712fd49aa27e4f359eb368, type: 3}
+  pawnPrefabBlack: {fileID: 3929450775373365920, guid: 0cd2c400c3142344592d1eda64dbe046, type: 3}
+  kingPrefabBlack: {fileID: 3929450775373365920, guid: 257ede07bf804104b82fcb6e35288b34, type: 3}
 --- !u!1 &1646777063
 GameObject:
   m_ObjectHideFlags: 0
