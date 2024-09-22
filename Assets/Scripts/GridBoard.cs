@@ -96,6 +96,10 @@ public class GridBoard : MonoBehaviour
                     SelectPiece(selectedSquare);
                 }
             }
+            else
+            {
+                DeselectPiece();
+            }
         }
     }
 
