@@ -22,6 +22,8 @@ public class PiecePlacer : MonoBehaviour
 
     public void PlaceWhitePieces()
     {
+        board.PlacePiece(kingPrefab, new Vector2(5, 1));
+        /*
         board.PlacePiece(rookPrefab, new Vector2(1, 1));
         board.PlacePiece(rookPrefab, new Vector2(8, 1));
 
@@ -32,12 +34,11 @@ public class PiecePlacer : MonoBehaviour
         board.PlacePiece(bishopPrefab, new Vector2(6, 1));
 
         board.PlacePiece(queenPrefab, new Vector2(4, 1));
-        board.PlacePiece(kingPrefab, new Vector2(5, 1));
 
         for (int i = 1; i < 9; i++)
         {
             board.PlacePiece(pawnPrefab, new Vector2(i, 2));
-        }
+        }*/
     }
 
     public void PlaceBlackPieces()
