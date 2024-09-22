@@ -5,27 +5,37 @@ using UnityEngine;
 
 public class pieceMove : MonoBehaviour
 {
-    [SerializeField] private bool firstMove;
+    [SerializeField] private bool isitmyTurn;
     Transform position;
     Vector3 currentPosition;
     public GameObject indicator;
+    public GameObject parent;
+
+    public bool selected;
+
+    public Collider2D childColliders;
+
+    public bool otherpieceSelected;
     private bool toggle;
 
     private int moveDist;
-    private int movedistDouble;
 
     // Start is called before the first frame update
     void Start()
     {
         moveDist = 2;
-        movedistDouble = 4;
         position = GetComponent<Transform>();
         toggle = false;
+
+        //childColliders = parent.GetComponentInChildren<Collider2D>();
+        childColliders = GetComponent<Collider2D>();
     }
 
     private void OnMouseDown()
     {
         toggle = !toggle;
+        //childColliders.enabled = !toggle;
+        this.gameObject.GetComponent<Collider2D>().enabled = true;
 
         //indicator.SetActive(toggle);
 
