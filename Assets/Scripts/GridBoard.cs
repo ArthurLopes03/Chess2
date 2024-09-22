@@ -10,7 +10,7 @@ public class GridBoard : MonoBehaviour
 
     public Dictionary<Vector2, Square> squares;
 
-    public List<Square> highlightedSquares;
+    List<Square> highlightedSquares;
 
     ChessPiece selectedPiece = null;
 
