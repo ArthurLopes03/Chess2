@@ -21,19 +21,9 @@ public class GridBoard : MonoBehaviour
     {
         highlightedSquares = new List<Square>();
         SetGrid();
-        piecePlacer.PlaceWhitePieces();
-        piecePlacer.PlaceBlackPieces();
+        piecePlacer.StartingPieces();
     }
     
-    public void PlacePiece(GameObject prefab, Vector2 position)
-    {
-        ChessPiece piece = Instantiate(prefab, squares[position].transform.position, this.transform.rotation).GetComponent<ChessPiece>();
-
-        piece.square = squares[position];
-        piece.square.piece = piece;
-        piece.DetermineAttackingSquares();
-    }
-
     //Sets up the grid
     void SetGrid()
     {
@@ -62,6 +52,7 @@ public class GridBoard : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             DeselectPiece();
+            piecePlacer.selectedPiece = null;
         }
     }
 
@@ -73,32 +64,43 @@ public class GridBoard : MonoBehaviour
         {
             Square selectedSquare = hit.collider.gameObject.GetComponent<Square>();
 
-            //Moves the piece if the square is highlighted
-            if(highlightedSquares.Contains(selectedSquare))
+            if(piecePlacer.selectedPiece != null)
             {
-                try
+                if(selectedSquare.piece == null)
                 {
-                    UnHighlightSquares();
-                    selectedPiece.MovePiece(selectedSquare);
-                    ChangeTurn();
-                }
-                catch
-                {
-                    Debug.Log("smth happened");
-                }
-            }
-            //Selects the piece if there is one
-            else if (selectedSquare.piece != null)
-            {
-                //If it isn't the same colour as the player, cancel
-                if (selectedSquare.piece.isWhite == playerIsWhite)
-                {
-                    SelectPiece(selectedSquare);
+                    piecePlacer.PlacePiece(selectedSquare.position);
+                    piecePlacer.selectedPiece = null;
                 }
             }
             else
             {
-                DeselectPiece();
+                //Moves the piece if the square is highlighted
+                if (highlightedSquares.Contains(selectedSquare))
+                {
+                    try
+                    {
+                        UnHighlightSquares();
+                        selectedPiece.MovePiece(selectedSquare);
+                        ChangeTurn();
+                    }
+                    catch
+                    {
+                        Debug.Log("smth happened");
+                    }
+                }
+                //Selects the piece if there is one
+                else if (selectedSquare.piece != null)
+                {
+                    //If it isn't the same colour as the player, cancel
+                    if (selectedSquare.piece.isWhite == playerIsWhite)
+                    {
+                        SelectPiece(selectedSquare);
+                    }
+                }
+                else
+                {
+                    DeselectPiece();
+                }
             }
         }
     }
