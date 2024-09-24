@@ -16,7 +16,7 @@ public class SlotMachine : MonoBehaviour
     {
         foreach (CardSlot slot in cardSlots)
         {
-            int i = Random.Range(0, cards.Count - 1);
+            int i = Random.Range(0, cards.Count);
 
             slot.AddNewCard(cards[i]);
         }
