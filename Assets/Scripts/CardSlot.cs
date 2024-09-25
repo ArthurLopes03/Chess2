@@ -10,6 +10,7 @@ public class CardSlot : MonoBehaviour
     public GameObject card;
     public Image image;
     public PiecePlacer piecePlacer;
+    public SlotMachine slotMachine;
 
     private bool isPurchasing = false;
 
@@ -24,13 +25,15 @@ public class CardSlot : MonoBehaviour
 
     public void SelectCard()
     {
-        if (white == piecePlacer.board.playerIsWhite)
+        if (white == piecePlacer.board.playerIsWhite && slotMachine.Coins >= card.GetComponent<Card>().cost)
         {
             piecePlacer.selectedPiece = card.GetComponent<Card>().piece;
 
             GetComponent<Button>().interactable = false;
 
             isPurchasing = true;
+
+            slotMachine.Coins -= card.GetComponent<Card>().cost;
         }
     }
 
@@ -39,6 +42,8 @@ public class CardSlot : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && isPurchasing)
         {
             GetComponent<Button>().interactable = true;
+            slotMachine.Coins += card.GetComponent<Card>().cost;
+            isPurchasing = false;
         }
 
         if (Input.GetMouseButtonDown(0) && isPurchasing)
