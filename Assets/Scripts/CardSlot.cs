@@ -54,4 +54,14 @@ public class CardSlot : MonoBehaviour
             isPurchasing = false;
         }
     }
+
+    private void OnMouseOver()
+    {
+        this.gameObject.transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
+    }
+
+    private void OnMouseExit()
+    {
+        this.gameObject.transform.localScale = new Vector3(0.27f, 0.27f, 0.27f);
+    }
 }
