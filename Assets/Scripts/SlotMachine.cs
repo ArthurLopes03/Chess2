@@ -9,6 +9,7 @@ public class SlotMachine : MonoBehaviour
     public List<GameObject> cards;
     public List<CardSlot> cardSlots;
     public TextMeshProUGUI coinsTag;
+<<<<<<< Updated upstream
 
     public int Coins
     {
@@ -20,9 +21,27 @@ public class SlotMachine : MonoBehaviour
     }
 
     private int coins;
+=======
+>>>>>>> Stashed changes
 
-    private void Start()
+    public int Coins
     {
+<<<<<<< Updated upstream
+=======
+        get { return coins; }
+        set {
+                coinsTag.text = value.ToString();
+                coins = value;
+            }
+    }
+
+    private int coins;
+
+    public bool loopComplete;
+
+    private void Awake()
+    {
+>>>>>>> Stashed changes
         Coins = 15;
         DrawNewCards();
     }
@@ -31,9 +50,13 @@ public class SlotMachine : MonoBehaviour
     {
         foreach (CardSlot slot in cardSlots)
         {
+            loopComplete = false;
+
             int i = Random.Range(0, cards.Count);
 
             slot.AddNewCard(cards[i]);
         }
+
+        loopComplete = true;
     }
 }

@@ -11,6 +11,12 @@ public class CardSlot : MonoBehaviour
     public Image image;
     public PiecePlacer piecePlacer;
     public SlotMachine slotMachine;
+<<<<<<< Updated upstream
+=======
+
+    private Vector3 startSize;
+    private Vector3 newSize;
+>>>>>>> Stashed changes
 
     private bool isPurchasing = false;
 
