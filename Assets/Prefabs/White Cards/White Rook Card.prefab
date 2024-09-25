@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 97efa84c0427d354b913745e66bd1130, type: 3}
   piece: {fileID: 3929450775373365920, guid: 938ea5e78c36384488746fb07cb0f892, type: 3}
+  cost: 4
