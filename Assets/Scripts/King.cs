@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class King : ChessPiece
 {
+    public GameObject gameEnd;
+
+    private void OnDisable()
+    {
+        SceneManager.LoadScene("End");
+    }
+
     public override void DetermineAttackingSquares()
     {
         attackingSquares.Clear();
