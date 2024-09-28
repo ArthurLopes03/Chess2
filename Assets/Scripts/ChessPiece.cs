@@ -9,6 +9,8 @@ public abstract class ChessPiece : MonoBehaviour
 
     public List<Square> attackingSquares;
 
+    public int value = 0;
+
     public virtual void DetermineAttackingSquares()
     {
 
@@ -49,5 +51,12 @@ public abstract class ChessPiece : MonoBehaviour
     public void GetCaptured()
     {
         Destroy(gameObject);
+    }
+
+    public int GetSacrificed()
+    {
+        int reward = value;
+        Destroy(gameObject);
+        return reward;
     }
 }

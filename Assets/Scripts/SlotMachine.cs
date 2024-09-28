@@ -11,6 +11,18 @@ public class SlotMachine : MonoBehaviour
     public List<CardSlot> cardSlots;
 
     public TextMeshProUGUI coinTag;
+    public TextMeshProUGUI rerollCostTag;
+
+    private int rerollCost = 0;
+
+    public int RerollCost
+    {
+        set { 
+                rerollCostTag.text = value.ToString();
+                rerollCost = value;
+            }
+        get { return rerollCost; }
+    }
 
     private int Coin;
     public int coin
@@ -19,6 +31,7 @@ public class SlotMachine : MonoBehaviour
                 coinTag.text = value.ToString();
                 Coin = value;
             }
+
         get { return Coin; }
     }
 
@@ -30,11 +43,16 @@ public class SlotMachine : MonoBehaviour
 
     public void DrawNewCards()
     {
-        foreach (CardSlot slot in cardSlots)
+        if (coin >= rerollCost)
         {
-            int i = Random.Range(0, cards.Count);
+            coin -= rerollCost;
+            RerollCost++;
+            foreach (CardSlot slot in cardSlots)
+            {
+                int i = Random.Range(0, cards.Count);
 
-            slot.AddNewCard(cards[i]);
+                slot.AddNewCard(cards[i]);
+            }
         }
     }
 }

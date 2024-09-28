@@ -48,6 +48,7 @@ MonoBehaviour:
   square: {fileID: 0}
   isWhite: 1
   attackingSquares: []
+  value: 3
 --- !u!1 &9079141517564334507
 GameObject:
   m_ObjectHideFlags: 0

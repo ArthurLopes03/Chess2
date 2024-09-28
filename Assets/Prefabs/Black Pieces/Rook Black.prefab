@@ -100,3 +100,4 @@ MonoBehaviour:
   square: {fileID: 0}
   isWhite: 0
   attackingSquares: []
+  value: 4

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +14,6 @@ public class CardSlot : MonoBehaviour
 
     public SlotMachine slotMachine;
 
-    private bool isPurchasing = false;
-
     public void AddNewCard(GameObject newCard)
     {
         card = newCard;
@@ -26,33 +25,35 @@ public class CardSlot : MonoBehaviour
 
     public void SelectCard()
     {
-        if (white == piecePlacer.board.playerIsWhite)
+        Card selectedCard = card.GetComponent<Card>();
+        if (white == piecePlacer.board.playerIsWhite && slotMachine.coin >= selectedCard.cost)
         {
-            piecePlacer.selectedPiece = card.GetComponent<Card>().piece;
+            if (piecePlacer.activeCardSlot != null)
+            {
+                piecePlacer.DeselectPiece();
+            }
+            piecePlacer.activeCardSlot = this;
+
+
+            piecePlacer.selectedPiece = selectedCard.piece;
 
             GetComponent<Button>().interactable = false;
+            slotMachine.coin -= selectedCard.cost;
 
-            isPurchasing = true;
-
-            slotMachine.coin -= card.GetComponent<Card>().cost;
+            piecePlacer.board.HighlightPlacingSquares();
         }
     }
 
-    public void Update()
+    public void UndoPurchase()
     {
-        if (Input.GetMouseButtonDown(1) && isPurchasing)
-        {
-            GetComponent<Button>().interactable = true;
+        GetComponent<Button>().interactable = true;
 
-            slotMachine.coin += card.GetComponent<Card>().cost;
+        slotMachine.coin += card.GetComponent<Card>().cost;
+    }
 
-            isPurchasing = false;
-        }
-
-        if (Input.GetMouseButtonDown(0) && isPurchasing)
-        {
-            isPurchasing = false;
-        }
+    public void ConfirmPurchase()
+    {
+        piecePlacer.activeCardSlot = null;
     }
 
     private void OnMouseOver()

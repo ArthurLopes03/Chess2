@@ -14,16 +14,27 @@ public class GridBoard : MonoBehaviour
 
     ChessPiece selectedPiece = null;
 
+    public ChessPiece SelectedPiece
+    {
+        get { return selectedPiece; }
+        set { selectedPiece = value; }
+    }
+
     public bool playerIsWhite = true;
 
     public TurnManager turnManager;
+
+    private ChessPiece whiteKing;
+    private ChessPiece blackKing;
 
     // Start is called before the first frame update
     void Start()
     {
         highlightedSquares = new List<Square>();
         SetGrid();
-        piecePlacer.StartingPieces();
+
+        whiteKing = piecePlacer.ReturnPlacePiece(piecePlacer.kingPrefab, new Vector2(5, 1));
+        blackKing = piecePlacer.ReturnPlacePiece(piecePlacer.kingPrefabBlack, new Vector2(4, 8));
     }
     
     //Sets up the grid
@@ -54,7 +65,10 @@ public class GridBoard : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             DeselectPiece();
-            piecePlacer.selectedPiece = null;
+            if(piecePlacer.selectedPiece != null)
+            {
+                piecePlacer.DeselectPiece();
+            }
         }
     }
 
@@ -68,10 +82,13 @@ public class GridBoard : MonoBehaviour
 
             if(piecePlacer.selectedPiece != null)
             {
-                if(selectedSquare.piece == null)
+                if(selectedSquare.piece == null && highlightedSquares.Contains(selectedSquare))
                 {
                     piecePlacer.PlacePiece(selectedSquare.position);
                     piecePlacer.selectedPiece = null;
+                    UnHighlightSquares();
+
+                    piecePlacer.activeCardSlot.ConfirmPurchase();
                 }
             }
             else
@@ -134,7 +151,7 @@ public class GridBoard : MonoBehaviour
         }
     }
 
-    void UnHighlightSquares()
+    public void UnHighlightSquares()
     {
         foreach (var square in highlightedSquares)
         {
@@ -153,5 +170,39 @@ public class GridBoard : MonoBehaviour
         {
             playerIsWhite = true;
         }
+    }
+
+    public void HighlightPlacingSquares()
+    { 
+        UnHighlightSquares();
+        highlightedSquares.Clear();
+
+        int i = 0;
+
+        if (playerIsWhite)
+        {
+            highlightedSquares = whiteKing.DeterminePossibleMoves();
+        }
+        else
+        {
+            i = 6;
+            highlightedSquares = blackKing.DeterminePossibleMoves();
+        }
+
+        for (int y = 1 + i; y < 3 + i; y++)
+        {
+            for (int x = 1; x < 9; x++)
+            {
+                Vector2 vector2 = new Vector2(x, y);
+
+                if (squares[vector2].piece == null)
+                {
+                    if(!highlightedSquares.Contains(squares[vector2]))
+                        highlightedSquares.Add(squares[vector2]);
+                }
+            }
+        }
+
+        HighLightSquares();
     }
 }
