@@ -25,7 +25,6 @@ public abstract class ChessPiece : MonoBehaviour
     public virtual int MovePiece(Square newSquare)
     {
         int distanceMoved = GetDistance(square.position, newSquare.position);
-        Debug.Log(distanceMoved);
 
         if (newSquare.piece != null)
         {

@@ -73,14 +73,14 @@ public class Pawn : ChessPiece
                 if (squareToCheck.piece == null)
                 {
                     squareList.Add(squareToCheck);
-                }
 
-                if (firstMove)
-                {
-                    squareToCheck = square.grid.squares[new Vector2(front.x, front.y + 1)];
-                    if (squareToCheck.piece == null)
+                    if (firstMove)
                     {
-                        squareList.Add(squareToCheck);
+                        squareToCheck = square.grid.squares[new Vector2(front.x, front.y + 1)];
+                        if (squareToCheck.piece == null)
+                        {
+                            squareList.Add(squareToCheck);
+                        }
                     }
                 }
             }
@@ -96,14 +96,14 @@ public class Pawn : ChessPiece
                 if (squareToCheck.piece == null)
                 {
                     squareList.Add(squareToCheck);
-                }
 
-                if (firstMove)
-                {
-                    squareToCheck = square.grid.squares[new Vector2(front.x, front.y - 1)];
-                    if (squareToCheck.piece == null)
+                    if (firstMove)
                     {
-                        squareList.Add(squareToCheck);
+                        squareToCheck = square.grid.squares[new Vector2(front.x, front.y - 1)];
+                        if (squareToCheck.piece == null)
+                        {
+                            squareList.Add(squareToCheck);
+                        }
                     }
                 }
             }

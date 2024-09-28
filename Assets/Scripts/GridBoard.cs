@@ -10,7 +10,7 @@ public class GridBoard : MonoBehaviour
 
     public Dictionary<Vector2, Square> squares;
 
-    List<Square> highlightedSquares;
+    public List<Square> highlightedSquares;
 
     ChessPiece selectedPiece = null;
 
@@ -80,6 +80,7 @@ public class GridBoard : MonoBehaviour
         {
             Square selectedSquare = hit.collider.gameObject.GetComponent<Square>();
 
+
             if(piecePlacer.selectedPiece != null)
             {
                 if(selectedSquare.piece == null && highlightedSquares.Contains(selectedSquare))
@@ -87,7 +88,6 @@ public class GridBoard : MonoBehaviour
                     piecePlacer.PlacePiece(selectedSquare.position);
                     piecePlacer.selectedPiece = null;
                     UnHighlightSquares();
-
                     piecePlacer.activeCardSlot.ConfirmPurchase();
                 }
             }
@@ -96,6 +96,7 @@ public class GridBoard : MonoBehaviour
                 //Moves the piece if the square is highlighted
                 if (highlightedSquares.Contains(selectedSquare))
                 {
+                    Debug.Log(selectedSquare.position);
                     try
                     {
                         ProcessTurn(selectedSquare);
@@ -157,6 +158,7 @@ public class GridBoard : MonoBehaviour
         {
             square.spriteRenderer.enabled = false;
         }
+        highlightedSquares.Clear();
     }
 
     void ChangeTurn()
