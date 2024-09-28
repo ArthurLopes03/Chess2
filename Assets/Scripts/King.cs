@@ -9,7 +9,15 @@ public class King : ChessPiece
 
     private void OnDisable()
     {
-        SceneManager.LoadScene("End");
+        if (isWhite == true)
+        {
+            SceneManager.LoadScene("WhiteEnd");
+        }
+
+        if (isWhite == false)
+        {
+            SceneManager.LoadScene("BlackEnd");
+        }
     }
 
     public override void DetermineAttackingSquares()
