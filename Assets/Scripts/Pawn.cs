@@ -112,9 +112,13 @@ public class Pawn : ChessPiece
         return squareList;
     }
 
-    public override void MovePiece(Square newSquare)
+    public override int MovePiece(Square newSquare)
     {
+        int distanceMoved = GetDistance(square.position, newSquare.position);
+
         firstMove = false;
         base.MovePiece(newSquare);
+
+        return distanceMoved;
     }
 }

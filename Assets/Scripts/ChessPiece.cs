@@ -20,8 +20,11 @@ public abstract class ChessPiece : MonoBehaviour
         return attackingSquares;
     }
 
-    public virtual void MovePiece(Square newSquare)
+    public virtual int MovePiece(Square newSquare)
     {
+        int distanceMoved = GetDistance(square.position, newSquare.position);
+        Debug.Log(distanceMoved);
+
         if (newSquare.piece != null)
         {
             newSquare.piece.GetCaptured();
@@ -34,6 +37,13 @@ public abstract class ChessPiece : MonoBehaviour
         this.transform.position = newSquare.GetComponent<Transform>().position;
 
         DetermineAttackingSquares();
+
+        return distanceMoved;
+    }
+
+    public int GetDistance(Vector2 start, Vector2 end)
+    {
+        return Mathf.RoundToInt(Mathf.Abs(end.x - start.x) + Mathf.Abs(end.y - start.y));
     }
 
     public void GetCaptured()

@@ -16,6 +16,8 @@ public class GridBoard : MonoBehaviour
 
     public bool playerIsWhite = true;
 
+    public TurnManager turnManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,9 +81,7 @@ public class GridBoard : MonoBehaviour
                 {
                     try
                     {
-                        UnHighlightSquares();
-                        selectedPiece.MovePiece(selectedSquare);
-                        ChangeTurn();
+                        ProcessTurn(selectedSquare);
                     }
                     catch
                     {
@@ -103,6 +103,13 @@ public class GridBoard : MonoBehaviour
                 }
             }
         }
+    }
+
+    void ProcessTurn(Square selectedSquare)
+    {
+        UnHighlightSquares();
+        turnManager.AddCoins(playerIsWhite , Mathf.CeilToInt(selectedPiece.MovePiece(selectedSquare))/2);
+        ChangeTurn();
     }
 
     void SelectPiece(Square selectedSquare)
