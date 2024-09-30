@@ -6,6 +6,7 @@ public abstract class ChessPiece : MonoBehaviour
 {
     public Square square;
     public bool isWhite;
+    public bool canMove = false;
 
     public List<Square> attackingSquares;
 

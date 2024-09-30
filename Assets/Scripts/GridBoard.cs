@@ -107,7 +107,7 @@ public class GridBoard : MonoBehaviour
                     }
                 }
                 //Selects the piece if there is one
-                else if (selectedSquare.piece != null)
+                else if (selectedSquare.piece != null && selectedSquare.piece.canMove == true)
                 {
                     //If it isn't the same colour as the player, cancel
                     if (selectedSquare.piece.isWhite == playerIsWhite)
@@ -125,6 +125,7 @@ public class GridBoard : MonoBehaviour
 
     void ProcessTurn(Square selectedSquare)
     {
+        SetCanMove();
         UnHighlightSquares();
         turnManager.AddCoins(playerIsWhite , Mathf.CeilToInt(selectedPiece.MovePiece(selectedSquare))/2);
         ChangeTurn();
@@ -206,5 +207,16 @@ public class GridBoard : MonoBehaviour
         }
 
         HighLightSquares();
+    }
+
+    public void SetCanMove()
+    {
+        foreach (var kvp in squares)
+        {
+            if(kvp.Value.piece != null)
+            {
+                kvp.Value.piece.canMove = true;
+            }
+        }
     }
 }

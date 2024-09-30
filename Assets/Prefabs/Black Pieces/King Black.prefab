@@ -47,7 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   square: {fileID: 0}
   isWhite: 0
+  canMove: 1
   attackingSquares: []
+  value: 0
+  gameEnd: {fileID: 0}
 --- !u!1 &6678757717648887145
 GameObject:
   m_ObjectHideFlags: 0
